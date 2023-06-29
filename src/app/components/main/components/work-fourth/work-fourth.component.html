@@ -1,0 +1,42 @@
+<div class="slider-wrapper">
+    <div class="keen-slider" #sliderRef>
+        <div [class]="'keen-slider__slide'" *ngFor="let slide of slides">
+            <div [ngStyle]="{'background': slide.color}" class="slide">
+                <div>{{ slide.text }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="vertical-scroll">
+    <ul>
+        <li *ngFor="let textEl of textArray">
+            <p>{{textEl}}</p>
+        </li>
+    </ul>
+</div>
+<hr>
+<div class="horizontal-scroll">
+    <ul>
+        <li *ngFor="let textEl of textArray">
+            <p>{{textEl}}</p>
+        </li>
+    </ul>
+</div>
+<hr>
+<div class="form-data">
+    <form #formDirective="ngForm" [formGroup]="someForm" novalidate class="modal-box" (submit)="openDialog()">
+        <div class="field-group">
+            <mat-form-field>
+                <mat-label>Enter email</mat-label>
+                <input matInput formControlName="email" maxlength="30" autocomplete="false">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Enter password</mat-label>
+                <input matInput formControlName="password" maxlength="12" autocomplete="false">
+            </mat-form-field>
+        </div>
+        <button [disabled]="!someForm.valid" mat-raised-button color="warn" type="submit">
+            Show form-data in popup</button>
+    </form>
+</div>

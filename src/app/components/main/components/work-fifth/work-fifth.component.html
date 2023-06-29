@@ -1,0 +1,51 @@
+<div #coloredSquare class="colored-square">
+    <p>color: {{colorValue}}</p>
+</div>
+<div class="form-data">
+    <form [formGroup]="someForm" novalidate>
+        <div class="field-group">
+            <mat-form-field>
+                <mat-label>Color RED</mat-label>
+                <input matInput formControlName="red" [min]="0" [max]="255" autocomplete="false">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Color for GREEN</mat-label>
+                <input matInput formControlName="green" [min]="0" [max]="255" autocomplete="false">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Color for BLUE</mat-label>
+                <input matInput formControlName="blue" [min]="0" [max]="255" autocomplete="false">
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+<hr>
+<div class="table-wrapper">
+    <div class="table">
+        <div *ngFor="let item of tableData" class="td">{{item}}</div>
+    </div>
+</div>
+<hr>
+<div class="resizable-box-wrapper">
+    <div #resizableBox class="resizable-box">
+        <span class="width-value">{{widthControl.value}}px</span>
+        <span class="height-value">{{heightControl.value}}px</span>
+    </div>
+</div>
+<div class="sizes-form">
+    <div class="slider-group">
+        <div>
+            <p>Width:</p>
+            <mat-slider [max]="100" [min]="10" [step]="1" [discrete]="true" [showTickMarks]="true">
+                <input matSliderThumb [formControl]="widthControl">
+            </mat-slider>
+        </div>
+        <div>
+            <p>Height:</p>
+            <mat-slider [max]="100" [min]="10" [step]="1" [discrete]="true" [showTickMarks]="true">
+                <input matSliderThumb [formControl]="heightControl">
+            </mat-slider>
+        </div>
+    </div>
+
+</div>
